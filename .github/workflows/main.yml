@@ -3,7 +3,7 @@ name: Build and Push Docker Image
 on:
   push:
     branches:
-      - main  # or your default branch
+      - main  # Change this if you want another branch
 
 jobs:
   build-and-push:
@@ -23,10 +23,9 @@ jobs:
 
       # Step 3: Build Docker image
       - name: Build Docker image
-        run: |
-          docker build -t ${{ secrets.DOCKER_USERNAME }}/web-code:latest .
+        run: docker build -t ${{ secrets.DOCKER_USERNAME }}/web-code:latest .
 
       # Step 4: Push Docker image to Docker Hub
       - name: Push Docker image
-        run: |
-          docker push ${{ secrets.DOCKER_USERNAME }}/web-code:latest
+        run: docker push ${{ secrets.DOCKER_USERNAME }}/web-code:latest
+
